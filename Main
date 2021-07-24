@@ -1,0 +1,19 @@
+import smtplib  #simple mail transfer protocol library
+
+#ENTER EMAIL INFORMATION AND CAN AUTOMATICALLY SEND OUT AN EMAIL UPON RUNNING
+
+conn = smtplib.SMTP('smtp.gmail.com', 587) #587 is port number
+
+conn.ehlo() #connects to server, when printed if number is in 200 range, in this caseit's 250, it means its good
+
+conn.starttls() #encrypts password
+
+conn.login('EMAIL', 'PASSWORD') #connect to email
+
+conn.sendmail('EMAIL', 'EMAIL', 'Subject: This is a test email' ) #from email, to email, body of email
+
+conn.quit()
+
+
+if __name__ == '__main__':
+    print(type(conn))
